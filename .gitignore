@@ -1,0 +1,7 @@
+/.idea/*
+/pkg/*
+/pkg/darwin_amd64/*s
+/bin/
+main
+main_darwin
+.DS_Store

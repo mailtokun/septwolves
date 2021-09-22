@@ -7,5 +7,13 @@
 
 ## 场景
 ### 场景 1: 将代码部署到 Docker 中
+```
+docker run -d --network="host" --name=yutu \
+-v /var/run/docker.sock:/var/run/docker.sock \
+--env GITHUB_REPO=https://github.com/xxxx/xxxx \
+--env GITHUB_BRANCH=main \
+--env GITHUB_TOKEN=xxxxxxx-xxxxx-xxxxx-xx \
+mailtokun/yutu /yutu/main
+```
 
 ### 场景 2: 将代码部署到 kubernetes 中

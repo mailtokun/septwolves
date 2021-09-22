@@ -3,8 +3,11 @@ IMAGE_REGISTRY = mailtokun/yutu
 IMAGE_TAG = $(shell git log -1 --pretty=%h)
 build2:
 	go build -o main main.go
-	$(GO_DOCKER_ENV) go build -ldflags "-s -w" -o ./main ./main.go
+	$(GO_DOCKER_ENV) go build -ldflags "-s -w" -gcflags=-trimpath=${GOPATH} -asmflags=-trimpath=${GOPATH} -o ./main ./main.go
 	docker build -t $(IMAGE_REGISTRY):$(IMAGE_TAG) .
+	docker tag $(IMAGE_REGISTRY):$(IMAGE_TAG) $(IMAGE_REGISTRY):latest
+	docker push $(IMAGE_REGISTRY):latest
+	docker push $(IMAGE_REGISTRY):$(IMAGE_TAG)
 	@echo "done"
 run-rainbow:
 	docker stop yutu || true

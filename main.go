@@ -16,6 +16,12 @@ import (
 
 var projects []models.Project
 
+func init() {
+	log.SetFormatter(&log.TextFormatter{
+		FullTimestamp: true,
+	})
+	log.SetReportCaller(true)
+}
 func main() {
 	projPath := filepath.Clean(_const.PROJECTS_PATH)
 	if _, err := os.Stat(projPath); os.IsNotExist(err) {
@@ -39,7 +45,7 @@ func main() {
 			return
 		}
 	}
-	log.Info("# yutu started.")
+	log.Info("# YuTu started.")
 	for i := 0; i < len(projects); i++ {
 		log.Info("## " + strconv.Itoa(i) + "/" + strconv.Itoa(len(projects)))
 		err := github.Clone(projects[i])
@@ -50,7 +56,7 @@ func main() {
 		first(projects[i])
 	}
 
-	ticker := time.NewTicker(time.Second * 20)
+	ticker := time.NewTicker(time.Minute)
 	defer ticker.Stop()
 	for {
 		select {

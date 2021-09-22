@@ -10,11 +10,13 @@
 ```
 mkdir ~/.yutu || true
 cat >~/.yutu/projects.json <<EOL
-{
-    "githubRepo": "https://github.com/xxxx/xxxx",
-    "githubBranch": "main",
-    "githubToken": "xxxxxxx-xxxxx-xxxxx-xxxxx",
-} 
+[
+    {
+        "githubRepo": "https://github.com/xxxx/xxxx",
+        "githubBranch": "main",
+        "githubToken": "xxxxxxx-xxxxx-xxxxx-xxxxx"
+    }
+]
 EOL
 docker run -d --network="host" --name=yutu \
 -v /var/run/docker.sock:/var/run/docker.sock \

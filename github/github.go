@@ -33,6 +33,7 @@ func Clone(proj models.Project) error {
 	}
 	return cloneErr
 }
+
 func Pull(proj models.Project) error {
 	log.Info("## git pull " + proj.GithubRepo)
 	r, err := git.PlainOpen(_const.CODE_FOLDER + "/" + models.GetMD5Hash(proj))
@@ -43,10 +44,17 @@ func Pull(proj models.Project) error {
 	if err != nil {
 		log.Error(err)
 	}
+	resetErr := w.Reset(&git.ResetOptions{
+		Mode: git.HardReset,
+	})
+	if resetErr != nil {
+		log.Error(resetErr)
+	}
 	var op = &git.PullOptions{
 		RemoteName: "origin",
 		Auth:       &http.BasicAuth{Username: "anyuser", Password: proj.GithubToken},
 		Progress:   os.Stdout,
+		Force:      true,
 	}
 	var pullErr error
 	var maxRetry int = 0

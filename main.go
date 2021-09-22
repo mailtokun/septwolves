@@ -17,10 +17,7 @@ import (
 var projects []models.Project
 
 func init() {
-	log.SetFormatter(&log.TextFormatter{
-		FullTimestamp: true,
-	})
-	log.SetReportCaller(true)
+	log.SetFormatter(&log.TextFormatter{})
 }
 func main() {
 	projPath := filepath.Clean(_const.PROJECTS_PATH)
@@ -47,7 +44,7 @@ func main() {
 	}
 	log.Info("# YuTu started.")
 	for i := 0; i < len(projects); i++ {
-		log.Info("## " + strconv.Itoa(i) + "/" + strconv.Itoa(len(projects)))
+		log.Info("## " + strconv.Itoa(i+1) + "/" + strconv.Itoa(len(projects)))
 		err := github.Clone(projects[i])
 		if err != nil {
 			log.Error("Failed to clone source code.", err.Error())

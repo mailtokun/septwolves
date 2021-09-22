@@ -15,6 +15,6 @@ func TestClone(t *testing.T) {
 	}
 	os.Setenv("GITHUB_REPO", "https://github.com/mailtokun/rainbow")
 	os.Setenv("GITHUB_BRANCH", "master")
-	Clone()
-	Pull()
+	//Clone()
+	//Pull()
 }

@@ -1,6 +1,25 @@
-# yutu CICD Gitops Engine
+# YuTu Gitops Engine
+玉兔Gitops引擎
+## 目标用户
+个人开发者或微小企业.
+## 优势
+只需要一条命令即完成CICD的配置. 
 
-## Background
-CICD 永远是一个不那么重要,但必不可少的工作. 它是利器
-## Vision
+## 场景
+### 场景 1: 将代码部署到 Docker 中
+```
+mkdir ~/.yutu || true
+cat >~/.yutu/projects.json <<EOL
+{
+    "githubRepo": "https://github.com/xxxx/xxxx",
+    "githubBranch": "main",
+    "githubToken": "xxxxxxx-xxxxx-xxxxx-xxxxx",
+} 
+EOL
+docker run -d --network="host" --name=yutu \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-v ~/.yutu/projects.json:/yutu/projects.json \
+mailtokun/yutu /yutu/main
+```
 
+### 场景 2: 将代码部署到 kubernetes 中

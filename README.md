@@ -8,11 +8,17 @@
 ## 场景
 ### 场景 1: 将代码部署到 Docker 中
 ```
+mkdir ~/.yutu || true
+cat >~/.yutu/projects.json <<EOL
+{
+    "githubRepo": "https://github.com/xxxx/xxxx",
+    "githubBranch": "main",
+    "githubToken": "xxxxxxx-xxxxx-xxxxx-xxxxx",
+} 
+EOL
 docker run -d --network="host" --name=yutu \
 -v /var/run/docker.sock:/var/run/docker.sock \
---env GITHUB_REPO=https://github.com/xxxx/xxxx \
---env GITHUB_BRANCH=main \
---env GITHUB_TOKEN=xxxxxxx-xxxxx-xxxxx-xx \
+-v ~/.yutu/projects.json:/yutu/projects.json \
 mailtokun/yutu /yutu/main
 ```
 

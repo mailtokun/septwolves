@@ -1,6 +1,6 @@
-# yutu CICD Gitops Engine
+# yutu Gitops Engine
 
-## Background
-CICD 永远是一个不那么重要,但必不可少的工作. 它是利器
+## 目标用户
+个人开发者或微小企业.
 ## Vision
 

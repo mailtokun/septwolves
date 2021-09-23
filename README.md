@@ -25,3 +25,7 @@ mailtokun/yutu /yutu/main
 ```
 
 ### 场景 2: 将代码部署到 kubernetes 中
+暂不支持
+
+
+[支持一下作者](https://www.buymeacoffee.com/coffeefree)

@@ -28,4 +28,4 @@ mailtokun/yutu /yutu/main
 暂不支持
 
 
-[支持一下作者](https://www.buymeacoffee.com/coffeefree){:target="_blank"}
+[支持一下作者](https://www.buymeacoffee.com/coffeefree)

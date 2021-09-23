@@ -7,6 +7,9 @@
 
 ## 场景
 ### 场景 1: 将代码部署到 Docker 中
+在目标机器上运行以下示例代码即可完成 CICD 的配置. 同时提供了两个示例
+- [golang 示例](https://github.com/mailtokun/yutu-go-example)
+- [vue 示例](https://github.com/mailtokun/yutu-vue-example)
 ```
 mkdir ~/.yutu || true
 cat >~/.yutu/projects.json <<EOL

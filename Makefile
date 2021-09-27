@@ -12,4 +12,4 @@ build2:
 run-rainbow:
 	docker stop yutu || true
 	docker rm -f yutu || true
-	docker run -d --network="host" --name=yutu -v /var/run/docker.sock:/var/run/docker.sock --env GITHUB_REPO=$(GITHUB_REPO) --env GITHUB_BRANCH=$(GITHUB_BRANCH) --env GITHUB_TOKEN=$(GITHUB_TOKEN) $(IMAGE_REGISTRY):$(IMAGE_TAG) /yutu/main
+	docker run -d --network="host" --name=yutu -v /var/run/docker.sock:/var/run/docker.sock -v ~/.yutu/projects.json:/yutu/projects.json -v /opt/env:/yutu/env mailtokun/yutu:fa35fb2 /yutu/main

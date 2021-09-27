@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/mailtokun/yutu/build/golang"
 	_const "github.com/mailtokun/yutu/const"
+	"github.com/mailtokun/yutu/env"
 	"github.com/mailtokun/yutu/github"
 	"github.com/mailtokun/yutu/models"
 	log "github.com/sirupsen/logrus"
@@ -18,6 +19,7 @@ var projects []models.Project
 
 func init() {
 	log.SetFormatter(&log.TextFormatter{})
+	go env.WatchEnv()
 }
 func main() {
 	projPath := filepath.Clean(_const.PROJECTS_PATH)

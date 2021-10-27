@@ -2,7 +2,7 @@ package env
 
 import (
 	"bufio"
-	"fmt"
+
 	"github.com/fsnotify/fsnotify"
 	_const "github.com/mailtokun/yutu/const"
 	log "github.com/sirupsen/logrus"
